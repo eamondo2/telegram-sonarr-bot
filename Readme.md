@@ -1,4 +1,5 @@
 **Unfortunately I don't use Telegram anymore and won't be providing updates for this, however, I'll still accept PRs.**
+**My fork/update work on this bot. **
 
 # telegram-sonarr-bot
 
@@ -17,7 +18,7 @@ Getting Started
 
 ```bash
 # Clone the repository
-git clone https://github.com/onedr0p/telegram-sonarr-bot
+git clone https://github.com/eamondo2/telegram-sonarr-bot.git
 ```
 
 ```bash
@@ -87,7 +88,7 @@ Found 6 series:
 
 Use the custom keyboard to select the series.
 
-![Step One](https://raw.githubusercontent.com/onedr0p/telegram-sonarr-bot/master/examples/step_1.png)
+![Step One](https://raw.githubusercontent.com/eamondo2/telegram-sonarr-bot/master/examples/step_1.png)
 
 The bot will ask you for the quality
 
@@ -98,7 +99,7 @@ Found 2 profiles:
 
 Send the profile using the custom keyboard
 
-![Step Two](https://raw.githubusercontent.com/onedr0p/telegram-sonarr-bot/master/examples/step_2.png)
+![Step Two](https://raw.githubusercontent.com/eamondo2/telegram-sonarr-bot/master/examples/step_2.png)
 
 The bot will ask you where the path you want the series to go
 
@@ -110,7 +111,7 @@ Found 2 folders:
 
 Send the folder using the custom keyboard
 
-![Step Two](https://raw.githubusercontent.com/onedr0p/telegram-sonarr-bot/master/examples/step_3.png)
+![Step Two](https://raw.githubusercontent.com/eamondo2/telegram-sonarr-bot/master/examples/step_3.png)
 
 Lastly, the bot will ask you which seasons you would like to monitor/download
 
@@ -125,7 +126,7 @@ Select which seasons to monitor:
 
 Send the monitor type using the custom keyboard
 
-![Step Two](https://raw.githubusercontent.com/onedr0p/telegram-sonarr-bot/master/examples/step_4.png)
+![Step Two](https://raw.githubusercontent.com/eamondo2/telegram-sonarr-bot/master/examples/step_4.png)
 
 If everything goes well, you'll see a text from the bot saying the series was added.
 

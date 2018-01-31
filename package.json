@@ -24,8 +24,11 @@
   },
   "author": "Devin Buhl <devin.kray@gmail.com>",
   "license": "MIT",
-    "scripts": {
-        "start": "node sonarr.js"
-    }
-
+  "scripts": {
+    "start": "node sonarr.js"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-plugin-react": "^7.6.1"
+  }
 }
