@@ -317,26 +317,16 @@ bot.on('message', function(msg) {
     var chat    = msg.chat? msg.chat:null;
     var message = msg.text;
 
-    console.log(msg);
-    console.log(cache.get('state' + user.id));
-
+   
     if ( /^\/(\S+)\s?(@)(\S+)\s?(.+)?$/g.test(msg.text)){
         var nameMatch = /^\/(\S+)\s?(@)(\S+)\s?(.+)?$/g.exec(msg.text)[3] || null;
         if ( nameMatch != botName && nameMatch != botUname ){
-            console.log('REJECT');
-            console.log(botName);
-            console.log(nameMatch);
-            console.log(botName == nameMatch);
+            
             return null;
-        } else {
-            console.log('PASS');
-        }
+        } 
     } else if  (!cache.get('state' + user.id)) {
-        console.log('FAIL2');
         return null;
-    } else {
-        console.log('PASS2');
-    }
+    } 
     /*
  Fixing escape-less nonsense
  */
