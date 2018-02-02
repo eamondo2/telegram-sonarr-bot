@@ -74,6 +74,7 @@
         "botChatSonarrWantedCommandExecuted": "Wanted command sent.",
         "botChatSonarrSerieAdded": "Series %s added",
         "botChatSonarrSerieAddedBy": "Series %s added by %s",
+        "botChatSonarrDiskUsage" : "Disk Usages: ",
         "botChatUnrevoke": "*Revoked Users:*",
         "botChatUnrevokeNoUsers": "There aren't any revoked users.",
         "botChatUnrevokeConfirmation": "Are you sure you want to unrevoke access for %s ?",

@@ -388,6 +388,14 @@ bot.on('message', function(msg) {
         }
     }
 
+    if(/^\/disk\s?(@)(\S+)\s?(.+)?$/g.test(message)) {
+        if(isAuthorized(user.id)){
+            return sonarr.getDiskUsage();
+        } else {
+            return replyWithError(user.id, new Error(i18n.__('notAuthorized')));
+        }
+    }
+
     if(/^\/rss\s?(@)(\S+)\s?(.+)?$/g.test(message)) {
         verifyAdmin(user.id);
         if(isAdmin(user.id)){

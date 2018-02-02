@@ -34,9 +34,64 @@ function SonarrMessage(bot, user, chat, cache) {
     });
 }
 
+function formatBytes(bytes,decimals) {
+    if(bytes == 0) return '0 Bytes';
+    var k = 1024,
+        dm = decimals || 2,
+        sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+
 /*
  * perform commands
  */
+SonarrMessage.prototype.getDiskUsage = function() {
+    var self = this;
+    self.sonarr.get('diskspace').then(function(result) {
+
+        _.sortBy(result, 'freeSpace');
+
+        var response = [];
+
+        _.forEach(result, function(n, key) {
+
+            var usageRes = '[[ ' + n.path + ' ]] ' + (n.freeSpace / n.totalSpace) + '% ' + '| ' + formatBytes(n.freeSpace) + ' free.';
+            response.push(usageRes);  
+
+        });
+
+        if (!response.length) {
+            throw new Error(i18n.__('errorNoDisksFound'));
+        }
+
+        response.sort();
+
+        response.unshift(i18n.__('botChatSonarrDiskUsage'));
+
+        if (response.length > 50) {
+            var splitReponse = _.chunk(response, 50);
+            splitReponse.sort();
+            var i = 0;
+            var libraryLoop = setInterval(function () {
+                var n = splitReponse[i];
+                if (n === undefined) {
+                    clearInterval(libraryLoop);
+                } else {
+                    n.sort();
+                    self._sendMessage(n.join('\n'), []);
+                }
+                i = i + 1;
+            }, 200);
+        } else {
+            return self._sendMessage(response.join('\n'), []);
+        }
+
+    }).catch(function(error) {
+        return self._sendMessage(error);
+    });
+};
+
 SonarrMessage.prototype.performLibrarySearch = function(searchText) {
     var self = this;
 
