@@ -434,8 +434,9 @@ bot.on('message', function(msg) {
     if (/^\/([Qq](uery)?)\s?(@)(\S+)\s?(.+)?$/g.test(message)) {
         console.log("QUERY");
         if(isAuthorized(user.id)){
-            var movieName = /^\/[Qq](uery)?\s?(@)(\S+)\s?(.+)?$/g.exec(message)[4] || null;
-            return sonarr.sendMoviesList(movieName);
+            var seriesName = /^\/[Qq](uery)?\s?(@)(\S+)\s?(.+)?$/g.exec(message)[4] || null;
+            console.log(seriesName);
+            return sonarr.sendSeriesList(seriesName);
         } else {
             return replyWithError(user.id, new Error(i18n.__('notAuthorized')));     
         }
