@@ -432,6 +432,7 @@ bot.on('message', function(msg) {
    * /query command
    */
     if (/^\/([Qq](uery)?)\s?(@)(\S+)\s?(.+)?$/g.test(message)) {
+        console.log("QUERY");
         if(isAuthorized(user.id)){
             var movieName = /^\/[Qq](uery)?\s?(@)(\S+)\s?(.+)?$/g.exec(message)[4] || null;
             return sonarr.sendMoviesList(movieName);
